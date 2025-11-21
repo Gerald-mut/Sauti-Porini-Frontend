@@ -24,14 +24,13 @@ function App() {
       try {
         console.log("Refreshing Data Streams...");
 
-        // We fire all 3 requests at the same time (Parallel Fetching)
         const [satData, ussdData, iotData] = await Promise.all([
           fetchSatelliteAlerts(),
           fetchUssdReports(),
           fetchIotEvents()
         ]);
         console.log("USSD Data received:", ussdData);
-        // Update state with the fresh results
+        // Update state with the results
         setData({
           satellite_alerts: satData || [],
           ussd_reports: ussdData || [],
@@ -43,8 +42,8 @@ function App() {
       }
     };
 
-    loadData(); // Initial load
-    const interval = setInterval(loadData, 5000); // Poll every 5s
+    loadData(); 
+    const interval = setInterval(loadData, 5000); 
     return () => clearInterval(interval);
   }, []);
 
