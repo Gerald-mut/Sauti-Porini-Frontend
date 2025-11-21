@@ -80,6 +80,6 @@ The **Sauti Porini Dashboard** is a tactical 3D visualization interface designed
 
 This project is proprietary software. All rights reserved.
 Unauthorized copying of this file, via any medium, is strictly prohibited.
-**Owner:** [Your Name]
+**Owner:** Gerald Muteru
 
 This project is proprietary software. All rights reserved.
