@@ -183,7 +183,7 @@ const ForestMap = ({ satelliteData = [], ussdData = [], iotData = [] }) => {
                     onClick={() => handlePetition({ lat: popupInfo.lat, lon: popupInfo.lon })}
                     className="w-full mt-2 bg-red-600 hover:bg-red-500 text-white py-2 px-4 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-red-900/20"
                   >
-                    <Send size={14} /> Petition Governor
+                    <Send size={14} /> Deforestation Detected
                   </button>
                 )}
               </div>
