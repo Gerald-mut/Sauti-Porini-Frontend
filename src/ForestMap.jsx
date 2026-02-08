@@ -45,7 +45,7 @@ const ForestMap = ({ satelliteData = [], ussdData = [], iotData = [] }) => {
 
         {/* --- LAYER 1: SATELLITE ALERTS (Filtered) --- */}
         {satelliteData
-          .filter(alert => alert.lat && alert.lon)
+          .filter(alert => alert.lat != null && alert.lon != null)
           .map((alert) => (
           <Marker
             key={`sat-${alert.id}`}
@@ -73,7 +73,7 @@ const ForestMap = ({ satelliteData = [], ussdData = [], iotData = [] }) => {
 
         {/* --- LAYER 2: IoT SENSORS (Filtered) --- */}
         {iotData
-          .filter(iot => iot.lat && iot.lon)
+          .filter(iot => iot.lat != null && iot.lon != null)
           .map((iot) => (
           <Marker
             key={`iot-${iot.id}`}
@@ -100,7 +100,7 @@ const ForestMap = ({ satelliteData = [], ussdData = [], iotData = [] }) => {
 
         {/* --- LAYER 3: USSD REPORTS (Filtered) --- */}
         {ussdData
-          .filter(report => report.lat && report.lon)
+          .filter(report => report.lat != null && report.lon != null)
           .map((report) => (
           <Marker
             key={`ussd-${report.id}`}

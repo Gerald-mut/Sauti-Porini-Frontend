@@ -6,7 +6,12 @@ const API_BASE_URL = 'http://localhost:8000';
 export const fetchSatelliteAlerts = async () => {
   try {
     const response = await axios.get(`${API_BASE_URL}/satellite-alerts`);
-    return response.data;
+    // Normalize data: ensure lat/lon are numbers and handle latitude/longitude keys
+    return response.data.map(item => ({
+      ...item,
+      lat: parseFloat(item.lat ?? item.latitude),
+      lon: parseFloat(item.lon ?? item.longitude)
+    }));
   } catch (error) {
     console.error("Error fetching satellite alerts:", error);
     return []; // Return empty array so app doesn't crash
@@ -17,7 +22,12 @@ export const fetchSatelliteAlerts = async () => {
 export const fetchUssdReports = async () => {
   try {
     const response = await axios.get(`${API_BASE_URL}/ussd`);
-    return response.data;
+    // Normalize data
+    return response.data.map(item => ({
+      ...item,
+      lat: parseFloat(item.lat ?? item.latitude),
+      lon: parseFloat(item.lon ?? item.longitude)
+    }));
   } catch (error) {
     console.error("Error fetching USSD reports:", error);
     return [];
@@ -28,7 +38,12 @@ export const fetchUssdReports = async () => {
 export const fetchIotEvents = async () => {
   try {
     const response = await axios.get(`${API_BASE_URL}/iot-events`);
-    return response.data;
+    // Normalize data
+    return response.data.map(item => ({
+      ...item,
+      lat: parseFloat(item.lat ?? item.latitude),
+      lon: parseFloat(item.lon ?? item.longitude)
+    }));
   } catch (error) {
     console.error("Error fetching IoT events:", error);
     return [];
